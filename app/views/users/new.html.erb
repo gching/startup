@@ -1,0 +1,7 @@
+<h2>Sign up</h2>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, :autofocus => true %>
+  <%# f.input :image, as: :file %>
+  <%= f.button :submit, 'Sign up', :class => 'btn btn-large btn-primary' %>
+<% end %>
