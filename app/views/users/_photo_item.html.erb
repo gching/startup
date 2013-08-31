@@ -1,0 +1,17 @@
+<li id="<%= photo_item.id %>">
+	<div class="row">
+	        <div class="span4">
+	       <%= image_tag photo_item.image_url(:thumb).to_s, align: "left" %> <br/><br/>
+	       <%= photo_item.name %>
+	        </div>
+	        <div class="span4 timestamp">
+	        <%=photo_item.created_at.strftime("%B %d, %Y")%>
+	        <%# link_to "Delete",
+                    user_file_path(:user_id => @user.id, :id => file_item.id),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger' %>
+	        </div>
+	      
+	</div>
+</li>

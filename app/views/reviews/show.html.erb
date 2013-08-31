@@ -1,0 +1,30 @@
+<ul class="breadcrumb">
+  <%= link_to "Back",
+              user_path(@user), :class => 'btn'  %>
+</ul>
+
+<div class="page-header center">
+  <h2><%= @review.name %></h2>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span1 center">
+    </div>
+    <div class="span11">
+      <div class="row-fluid">
+        <div class="span10">
+        <p>Feedback:</p>
+        <%= wrap(@review.feedback)%>
+        <br/>
+        <br/>
+        <p class="muted">From:  <%= @review.user.name %></p>
+        </div>
+
+      
+
+      </div>
+
+    </div>
+  </div>
+</div>

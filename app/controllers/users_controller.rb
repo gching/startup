@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
   def index 
     @users = User.all
   end
@@ -6,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
     #@goals = @user.received_goals
+    @user = User.find(params[:id])
+    @events = @user.events.scoped
+    @photos = @user.photos
+    @reviews = @user.reviews
   end
   
   def update
@@ -16,26 +21,6 @@ class UsersController < ApplicationController
     else
       redirect_to users_path, :alert => "Unable to update user."
     end
-  end
-
-  def new
-    @user = User.new
-    @navbar = true
-  end
-
-  def create
-    @user = User.new(params[:user])
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: "Welcome to CalTogether!" }
-        #format.json { render 'show', status: :created, location: user_event_path(user_id: @user.id, id: @event.id) }
-      else
-        format.html { render action: "new" }
-        #format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
-
-
   end
 
 

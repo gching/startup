@@ -1,0 +1,20 @@
+<%= simple_form_for([@user, @event], :html => {:multipart => true}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, input_html:{style: 'width:500px;'} %>
+    <%= f.input :description, input_html: {style: 'height:200px;' 'width:600px;'} %>
+    <%= f.input :start_time, as: :datetime, required: true  %> <br />
+    <%= f.input :ends_at, as: :datetime, required: true  %> <br />
+    <%= f.input :all_day %>
+
+  </div>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :author_id, value: current_user.id%>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_events_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -12,6 +12,10 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                           :branch => '3.0.0'
 gem 'sass-rails',   '~> 3.2.3'
 gem "simple_form", ">= 2.1.0"
+gem 'devise'
+gem "simple_calendar", "~> 0.1.9"
+gem "carrierwave"
+gem "rmagick"
 
 # Gems used only for assets and not required
 # in production environments by default.

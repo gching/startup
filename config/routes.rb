@@ -1,4 +1,28 @@
 Startup::Application.routes.draw do
+    devise_for :users, :controllers => {:registrations => "registrations"}
+    resources :users
+    resources :users do
+resources :events
+resources :photos
+resources :reviews
+
+    end
+resources :photos
+resources :reviews
+   authenticated :user do
+    #request.env["warden"].user(:user)
+    #root :to => "static#index"
+    #if current_user.has_role?(:TC)
+     # root to: "static#index"
+    #else
+      root to: "passthrough#index"
+    #end
+  end
+  devise_scope :user do
+    root to: "devise/sessions#new"
+    #root to:
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,8 +72,8 @@ Startup::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'users#new'
-   resources :users
+   #root :to => 'users#new'
+   
 
   # See how all your routes lay out with "rake routes"
 

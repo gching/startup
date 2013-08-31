@@ -1,11 +1,10 @@
 
-<div class="jumbotron">
 
-	  <img src="/assets/user.jpg" class="img-responsive" alt="Responsive image" align="left">
+	 <%= image_tag @user.image_url(:thumb).to_s, align: "left" %>
 	  <div class="profile-info">
-	  <h2>Ella Huynh</h2>
+	  <h2><%=@user.name%></h2>
 	  <p>Favourite Restaurant: Mcdonalds</p>
-	  <P>Points: 2913</P>
+	  <P>Points: <%= rand(9999) %></P>
 	  </div>
 
 
@@ -13,12 +12,53 @@
 	  <li class="active"><a href="#calendar" data-toggle="tab">Calendar</a></li>
 	  <li><a href="#photos" data-toggle="tab">My Photos</a></li>
 	  <li><a href="#reviews" data-toggle="tab">My Reviews</a></li>
-	  <li><a href="#events" data-toggle="tab">My Events</a></li>
 	</ul>
 	<div class="tab-content">
-	  <div class="tab-pane active" id="calendar">...2</div>
-	  <div class="tab-pane" id="photos">...2</div>
-	  <div class="tab-pane" id="reviews">...3</div>
-	  <div class="tab-pane" id="events">...4</div>
+	  <div class="tab-pane active" id="calendar">
+	  <br/>
+	  <%= link_to 'Organize a new event with this person', new_user_event_path(@user), :class => "btn btn-primary btn-small" %>
+	  <%= calendar @events do |event| %>
+ 		 <div><%= link_to event.name, user_event_path(user_id: @user.id, id: event.id) %></div>
+	  <% end %>
+	  </div>
+	  <div class="tab-pane" id="photos">
+<%= link_to "Upload a photo",
+            new_user_photo_path(:user_id => @user.id),
+            :class => 'btn btn-primary btn-small' %></h1>
+  
+
+
+<% if !@photos.empty? %>
+
+
+  <ol class="discussions-index">
+    <%= render partial: 'photo_item', collection: @photos %>
+  </ol>
+
+<% else %>
+  <p class="muted"><em>There are no photos uploaded for this user, please submit a new photo topic below.</em></p>
+<% end %>
+
+
+	  </div>
+	  <div class="tab-pane" id="reviews">
+<%= link_to "Upload a review",
+            new_user_review_path(:user_id => @user.id),
+            :class => 'btn btn-primary btn-small' %></h1>
+  
+
+
+<% if !@reviews.empty? %>
+
+
+  <ol class="discussions-index">
+    <%= render partial: 'review_item', collection: @reviews %>
+  </ol>
+
+<% else %>
+  <p class="muted"><em>There are no reviews uploaded for this user, please submit a new review topic below.</em></p>
+<% end %>
+
+
+	  </div>
 	</div>
-</div>

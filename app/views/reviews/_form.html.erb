@@ -1,0 +1,14 @@
+<%= simple_form_for([@user, @review], :url => user_reviews_path) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :name, input_html:{style: 'width:500px;'} %>
+    <%= f.input :feedback %>
+    </div>
+  <div><%= f.hidden_field :user_id, :value => @user.id %></div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Upload Review", :class => 'btn-primary' %>
+    <%= link_to "Cancel",
+                 user_reviews_path(@user), :class => 'btn' %>
+  </div>
+<% end %>

@@ -2,8 +2,75 @@
 	padding-left: 160px;
 }
 
+body {
+	padding-top: 60px;
+}
+
 
 
 .tab-navigation {
-	padding-top: 50px;
+	padding-top: 100px;
+}
+
+.discussions-index {
+  list-style: none;
+  
+
+  li {
+    padding: 20px 0;
+    padding-left: 100px;
+    border-top: 1px solid #e8e8e8;
+    padding-top: 20px;
+    &:first-child{
+      border-top: none;
+      padding-top: 0;
+    }
+    &:last-child{
+      border-bottom: 1px solid #e8e8e8;
+    }
+    
+  }
+
+  .content {
+    display: block;
+  }
+  .readmore {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+
+  }
+
+  .timestamp {
+    color: #B3B3B3;
+    padding: 7px 0;
+  }
+
+  .timestamp2 {
+    color: #B3B3B3;
+    padding-bottom: 7px;
+  }
+}
+
+.supervision-index {
+  list-style: none;
+  
+
+  li {
+    padding: 20px 0;
+    padding-left: 100px;
+    border-top: 1px solid #e8e8e8;
+    padding-top: 20px;
+    .btn-options{
+      padding-top: 20px;
+    }
+    &:first-child{
+      border-top: none;
+      padding-top: 0;
+    }
+    &:last-child{
+      border-bottom: 1px solid #e8e8e8;
+    }
+    
+  }
 }
